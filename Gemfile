@@ -79,5 +79,3 @@ end
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem "sassc-rails"
-
-  gem 'bootstrap-icons-helper'
