@@ -1,0 +1,21 @@
+
+<!--Partial para la vista en el index-->
+<div id="<%= dom_id cc_post %>">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-preview">
+                        <%= link_to  cc_post_path(cc_post) do %>
+                            <h2 class="post-title"><%= cc_post.title %></h2>
+                            <h5 class="post-subtitle"><%= truncate(cc_post.content, :length => 100) %></h5>
+                        <% end %>
+                        <p class="post-meta">
+                            Posted by <%= cc_post.cc_user.name %>
+                            on <%= cc_post.created_at.strftime("%B %d, %Y") %>
+                        </p>
+                    </div>
+                    <hr class="my-4" />
+                </div>
+            </div>
+        </div>
+</div>

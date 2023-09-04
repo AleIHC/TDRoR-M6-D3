@@ -1,0 +1,53 @@
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  .form-field label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%;
+  }
+  
+  .form-actions {
+    margin-top: 20px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  .form-content {
+    height: 800px;
+  }
+  
+  .form-title {
+    font-family: "Open Sans";
+    font-weight: 700;
+  }
+
+  .form-body {
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: "Open Sans";
+    font-weight: 300;
+    font-size: larger;
+  }
+  
+  .form-button {
+    margin-top: 5px;
+  }

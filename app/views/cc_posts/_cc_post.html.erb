@@ -1,0 +1,38 @@
+
+
+<div id="<%= dom_id cc_post %>">
+
+<div class="container">
+
+    <div class= "col-md-8 news-title m-auto mb-5">
+      <%= link_to cc_posts_path, class: "mt-auto btn btn-dark" do %>
+        <div class="d-flex">
+          <p class="m-auto me-3">Back to posts</p><i class="bi bi-chevron-left"></i></i>
+        </div>
+      <%end %>
+      <hr>
+      <h3 class="post-title mt-5"><%= cc_post.title %></h3>
+    </div>
+      
+
+      
+    <div class="col-md-10 m-auto">
+      <%= image_tag "#{cc_post.image}", class:"post-img" %>
+    </div>
+
+      
+    <div class= "col-md-8 post-body m-auto mt-5">
+      <%= cc_post.content %>
+    </div>
+
+    <p class="col-md-8 post-meta m-auto mt-5">
+      Posted by <%= cc_post.cc_user.name %>
+      on <%= cc_post.created_at.strftime("%B %d, %Y") %>
+      
+    </p>
+    
+</div>
+        
+      
+</div>
+

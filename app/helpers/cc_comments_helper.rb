@@ -1,0 +1,2 @@
+module CcCommentsHelper
+end

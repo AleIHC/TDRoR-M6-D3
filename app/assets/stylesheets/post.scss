@@ -1,0 +1,61 @@
+.post-title {
+    font-family: "Open Sans";
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  .post-body {
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: "Open Sans";
+    font-weight: 300;
+    font-size: larger;
+  }
+  
+  .post-img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+  }
+
+
+  .options {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px; 
+  }
+  
+  .reaction-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .reaction-counters {
+    display: flex;
+    gap: 10px; 
+    padding-top: 5px;
+  }
+
+  .like-button {
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+  }
+  .options-buttons {
+    gap: 10px;
+  }
+
+  .edit-button {
+    font-size: 1.5rem;
+    color: #000;
+    padding-bottom: 10px;
+  }
+
+  .destroy-button {
+    font-size: 1.4rem;
+    border: none;
+    background: none;
+    padding-bottom: 10px;
+  } 
+
+  

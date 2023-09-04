@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  cc_post: one
+  cc_user: one
+  cc_comment: one
+
+two:
+  kind: MyString
+  cc_post: two
+  cc_user: two
+  cc_comment: two

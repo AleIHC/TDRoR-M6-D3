@@ -1,0 +1,35 @@
+<%= form_with(model: cc_post, html: { class: "cc-post-form" }) do |form| %>
+  <% if cc_post.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(cc_post.errors.count, "error") %> prohibited this cc_post from being saved:</h2>
+      <ul>
+        <% cc_post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-field">
+    <%= form.label :image %>
+    <%= form.text_field :image, class: "form-control" %>
+  </div>
+
+  <div class="form-field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-field">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: "form-control form-content" %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit  "Guardar Post", class:"btn btn-dark posts-title" %>
+  </div>
+  
+  <%= form.hidden_field :cc_user_id, value: current_cc_user.id %>
+ 
+<% end %>
+ 

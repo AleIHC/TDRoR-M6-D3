@@ -1,0 +1,41 @@
+<%= form_with(model: @cc_comment, local: true) do |form| %>
+  <% if @cc_comment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@cc_comment.errors.count, "error") %> prohibited this cc_comment from being saved:</h2>
+
+      <ul>
+        <% @cc_comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <%= form.hidden_field :cc_post_id, value: @cc_post.id %>
+  <%= form.hidden_field :cc_user_id, value: @cc_comment.cc_user %>
+  
+   <div class="row d-flex justify-content-center comment">
+      <div class="col-md-8 col-lg-6 mb-5">
+        <div class="card shadow-0 border">
+          <div class="card-body p-0">
+            <div class="card m-0">
+              <div class="card-body">             
+                <div class="d-flex flex-row align-items-center">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="100"  height="100"
+                    height="25" />
+                  <div class="comment-content ms-2">
+                    <%= form.text_area :content, class:"comment-content" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-2">
+          <%= form.submit  "Guardar comentario", class:"btn btn-dark posts-title" %>
+        </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+

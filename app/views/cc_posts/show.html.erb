@@ -1,0 +1,47 @@
+<%= render @cc_post %>
+<hr>
+<div class="options">
+  
+  <!--Crear botones para dar like y dislike y mostrar ícono dependiendo del cc_like.kind -->
+  <div class="reaction-buttons">
+    <% CcPost::Kinds.each do |kind| %>
+    <span class="reaction-button">
+      <% icon_type = (kind == 'like') ? 'fas fa-thumbs-up' : 'fas fa-thumbs-down' %>
+      <%= button_to new_cc_user_cc_like_path(cc_post_id: @cc_post.id, like_type: "cc_post", kind: kind), method: :post, class: "like-button" do %>
+        <i class="<%= icon_type %>"></i>
+      <% end %>
+    </span>
+    <% end %>
+    <div class="reaction-counters">
+      <p>Me gusta: <%= @cc_post.cc_likes.where(kind: 'like').count %></p>
+      <p>No me gusta: <%= @cc_post.cc_likes.where(kind: 'dislike').count %></p>
+    </div>
+  </div>
+
+  
+    
+  <!--Chequear si el usuario está logeado y si corresponde con el creador del post para mostrar botones de edición y borrado-->
+    <% if cc_user_signed_in? && @cc_post.cc_user.id == current_cc_user.id %>
+      <div class="options-buttons d-flex">
+        <%= link_to  edit_cc_post_path(@cc_post), class: "edit-button ms-auto" do %>
+          <i class="fa-solid fa-pencil"></i>
+        <% end %>
+        
+        <%= button_to cc_post_path(@cc_post), method: :delete, class: "destroy-button ms-auto" do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
+</div>
+
+  <!--Mostrar form de comentarios y mostrar comentarios guardados-->
+  <div class="container ms-auto mt-3">
+    <%= render 'cc_comments/form' %>
+    <h1 class="page-title text-center">Comentarios</h1>
+    <div class="container ms-auto mt-3">
+    <% @cc_comments.each do |cc_comment| %>
+      <%= render cc_comment %>
+    <% end %>
+    </div>
+  </div>
+</div>

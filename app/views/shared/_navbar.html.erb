@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container ">
+    <%= link_to  root_path, class: "navbar-brand ms-auto" do %>
+        <div class="d-flex navbar-brand">
+          <i class="fa-solid fa-paw "></i>
+          <p class="pt-2 ms-2">Inicio</p>
+          </div>
+        <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+    <ul class="navbar-nav">
+     <% if cc_user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Postear", new_cc_post_path, class: "nav-link active" %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="navbar-nav me-auto">
+    </ul>
+      <ul class="navbar-nav ms-auto text-light">
+        <li class="nav-item dropdown text-light">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if cc_user_signed_in? %>
+                <% if current_cc_user.name %>
+                Hola <%= current_cc_user.name %>
+              <% else %>
+                Hola <%= current_cc_user.email %>
+              <% end %>
+            <% else %>
+                Inicia sesión o regístrate
+            <% end %>
+          </a>
+          <ul class="dropdown-menu ms-auto text-light">
+          <% if cc_user_signed_in? %>
+              <li><%= button_to "Cerrar Sesión", destroy_cc_user_session_path, class:"dropdown-item", method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Iniciar Sesión", new_cc_user_session_path, class:"dropdown-item" %></li>
+              <li><%= link_to "Registro", new_cc_user_registration_path, class:"dropdown-item" %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
